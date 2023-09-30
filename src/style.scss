@@ -7,7 +7,7 @@
    padding: 0;
 }
 
-// Colors
+// Colors - Light Theme
 $color-primary: hsl(172, 67%, 45%);
 $color-secondary: hsl(183, 100%, 15%);
 $color-accent-dark-1: hsl(186, 14%, 43%);
@@ -15,6 +15,18 @@ $color-accent-dark-2: hsl(184, 14%, 56%);
 $color-accent-light-1: hsl(185, 41%, 84%);
 $color-accent-light-2: hsl(189, 41%, 97%);
 $color-accent-light-3: hsl(0, 0%, 100%);
+
+// Colors - Dark Theme
+$dt-color-primary: hsl(172, 67%, 31%);
+$dt-color-secondary: hsl(183, 100%, 10%);
+$dt-color-accent-dark-1: hsl(185, 41%, 21%);
+$dt-color-accent-dark-2: hsl(186, 14%, 43%);
+$dt-color-accent-dark-3: hsl(180, 18%, 40%);
+$dt-color-accent-dark-4: hsl(0, 0%, 5%);
+$dt-color-accent-dark-5: hsl(0, 0%, 8%);
+$dt-color-accent-light-1: hsl(184, 19%, 68%);
+$dt-color-accent-light-2: hsl(183, 100%, 85%);
+$dt-color-accent-light-3: hsl(183, 100%, 95%);
 
 // Fonts
 $font-primary: "Space-Mono";
@@ -52,24 +64,14 @@ $radius-24: 24px;
 $radius-round: 50%;
 
 
-
 // UI variables - Light Theme
-$bg-light: $color-accent-light-1;
-$bg-dark: $color-secondary;
+$bg-body: $color-accent-light-1;
+$bg-results: $color-secondary;
 $bg-input: $color-accent-light-2;
 $bg-main: $color-accent-light-3;
 $label-text-dark: $color-accent-dark-1;
 $label-text-secondary: $color-accent-dark-2;
 $label-text-light: $color-accent-light-3;
-
-// UI variables - Dark Theme
-// $bg-light: $color-accent-light-1;
-// $bg-dark: $color-secondary;
-// $bg-input: $color-accent-light-2;
-// $bg-main: $color-accent-light-3;
-// $label-text-dark: $color-accent-dark-1;
-// $label-text-secondary: $color-accent-dark-2;
-// $label-text-light: $color-accent-light-3;
 
 
 @mixin flex-column-center {
@@ -90,11 +92,37 @@ $label-text-light: $color-accent-light-3;
    align-items: center;
 }
 
+.dark-theme {
+   // UI variables - Dark Theme
+   $bg-body: $dt-color-accent-dark-1;
+   $bg-results: $dt-color-secondary;
+   $bg-input: $dt-color-accent-dark-5;
+   $bg-main: $dt-color-accent-dark-4;
+   $label-text-dark: $dt-color-accent-dark-2;
+   $label-text-secondary: $dt-color-accent-light-1;
+   $label-text-light: $dt-color-accent-light-2;
+
+   transition: all 400ms ease-in-out;
+}
+
 .container {
    @include flex-column-center;
-   background-color: $bg-light;
+   background-color: $bg-body;
    min-height: 100vh;
-   gap: $space-5-5;
+   gap: $space-2-5;
+
+   transition: all 400ms ease-in-out;
+}
+
+.header {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: $space-4;
+}
+
+.theme-toggle {
+   cursor: pointer;
 }
 
 .main {
