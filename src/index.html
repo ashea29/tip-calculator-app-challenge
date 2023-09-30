@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="style.scss">
   </head>
   <body class="container">
-    <header>
+    <header class="header">
       <div class="brand__logo">
         <img src="./images/logo.svg" alt="Splitter Logo">
+      </div>
+      <div class="theme-toggle">
+        <img src="./images/light-theme-icon.svg" alt="Theme toggle">
       </div>
     </header>
     <main class="main">
@@ -25,10 +28,10 @@
           <label for="tip-percent__amt">Select Tip %</label>
           <div class="tip-amt-group">
             <div id="five-percent" class="five-percent">5%</div>
-            <div id="ten-percent" class="ten-percent"></div>
-            <div id="fifteen-percent" class="fifteen-percent"></div>
-            <div id="twentyfive-percent" class="twentyfive-percent"></div>
-            <div id="fifty-percent" class="fifty-percent"></div>
+            <div id="ten-percent" class="ten-percent">10%</div>
+            <div id="fifteen-percent" class="fifteen-percent">15%</div>
+            <div id="twentyfive-percent" class="twentyfive-percent">25%</div>
+            <div id="fifty-percent" class="fifty-percent">50%</div>
             <input 
               type="number"
               name="custom-percent"
