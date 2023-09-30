@@ -7,71 +7,73 @@
     <title>Tip Calculator</title>
     <link rel="stylesheet" href="style.scss">
   </head>
-  <body class="container">
-    <header class="header">
-      <div class="brand__logo">
-        <img src="./images/logo.svg" alt="Splitter Logo">
-      </div>
-      <div class="theme-toggle">
-        <img src="./images/light-theme-icon.svg" alt="Theme toggle">
-      </div>
-    </header>
-    <main class="main">
-      <section id="amounts-input" class="amounts-input">
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="brand__logo">
+          <img src="./images/logo.svg" alt="Splitter Logo">
+        </div>
+        <div class="theme-toggle">
+          <img src="./images/light-theme-icon.svg" alt="Theme toggle">
+        </div>
+      </header>
+      <main class="main">
+        <section id="amounts-input" class="amounts-input">
+          
+          <article id="total-bill" class="total-bill">
+            <label for="total-bill__amt">Bill</label>
+            <input type="number" name="total-bill__amt" id="total-bill__amt">
+          </article>
+          
+          <article id="tip-percent" class="tip-percent">
+            <label for="tip-percent__amt">Select Tip %</label>
+            <div class="tip-amt-group">
+              <div id="five-percent" class="five-percent">5%</div>
+              <div id="ten-percent" class="ten-percent">10%</div>
+              <div id="fifteen-percent" class="fifteen-percent">15%</div>
+              <div id="twentyfive-percent" class="twentyfive-percent">25%</div>
+              <div id="fifty-percent" class="fifty-percent">50%</div>
+              <input 
+                type="number"
+                name="custom-percent"
+                id="custom-percent"
+                placeholder="Custom"
+              >
+              <input 
+                aria-hidden="true"
+                type="number"
+                name="tip-percent__amt"
+                id="tip-percent__amt"
+              >
+            </div>
+          </article>
+          
+          <article id="group-size" class="group-size">
+            <label for="group-size__amt">Number of People</label>
+            <input type="number" name="group-size__amt" id="group-size__amt">
+          </article>
+        </section>
         
-        <article id="total-bill" class="total-bill">
-          <label for="total-bill__amt">Bill</label>
-          <input type="number" name="total-bill__amt" id="total-bill__amt">
-        </article>
-        
-        <article id="tip-percent" class="tip-percent">
-          <label for="tip-percent__amt">Select Tip %</label>
-          <div class="tip-amt-group">
-            <div id="five-percent" class="five-percent">5%</div>
-            <div id="ten-percent" class="ten-percent">10%</div>
-            <div id="fifteen-percent" class="fifteen-percent">15%</div>
-            <div id="twentyfive-percent" class="twentyfive-percent">25%</div>
-            <div id="fifty-percent" class="fifty-percent">50%</div>
-            <input 
-              type="number"
-              name="custom-percent"
-              id="custom-percent"
-              placeholder="Custom"
-            >
-            <input 
-              aria-hidden="true"
-              type="number"
-              name="tip-percent__amt"
-              id="tip-percent__amt"
-            >
-          </div>
-        </article>
-        
-        <article id="group-size" class="group-size">
-          <label for="group-size__amt">Number of People</label>
-          <input type="number" name="group-size__amt" id="group-size__amt">
-        </article>
-      </section>
-      
-      <section id="per-person-result" class="per-person-result">
-        <article id="tip-per-person" class="tip-per-person">
-          <div class="tip-per-person__label">
-            <div class="tip-result-label__line-1">Tip Amount</div>
-            <div class="tip-result-label__line-2">/ person</div>
-          </div>
-        </article>
+        <section id="per-person-result" class="per-person-result">
+          <article id="tip-per-person" class="tip-per-person">
+            <div class="tip-per-person__label">
+              <div class="tip-result-label__line-1">Tip Amount</div>
+              <div class="tip-result-label__line-2">/ person</div>
+            </div>
+          </article>
 
-        <article id="total-per-person" class="total-per-person">
-          <div class="total-result-label__line-1">Total</div>
-          <div class="total-result-label__line-2">/ person</div>
-        </article>
+          <article id="total-per-person" class="total-per-person">
+            <div class="total-result-label__line-1">Total</div>
+            <div class="total-result-label__line-2">/ person</div>
+          </article>
 
-        <article id="amounts-reset" class="amounts-reset">
-          <button id="reset-btn" class="amounts-reset__btn">RESET</button>
-        </article>
-      </section>
-    </main>
-
+          <article id="amounts-reset" class="amounts-reset">
+            <button id="reset-btn" class="amounts-reset__btn">RESET</button>
+          </article>
+        </section>
+      </main>
+    </div>
+    
     <script src="script.js"></script>
   </body>
 </html>
