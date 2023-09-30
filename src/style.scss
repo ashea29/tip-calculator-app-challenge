@@ -7,71 +7,76 @@
    padding: 0;
 }
 
-// Colors - Light Theme
-$color-primary: hsl(172, 67%, 45%);
-$color-secondary: hsl(183, 100%, 15%);
-$color-accent-dark-1: hsl(186, 14%, 43%);
-$color-accent-dark-2: hsl(184, 14%, 56%);
-$color-accent-light-1: hsl(185, 41%, 84%);
-$color-accent-light-2: hsl(189, 41%, 97%);
-$color-accent-light-3: hsl(0, 0%, 100%);
+:root {
+      // Colors - Light Theme
+   --color-primary: hsl(172, 67%, 45%);
+   --color-secondary: hsl(183, 100%, 15%);
+   --color-accent-dark-1: hsl(186, 14%, 43%);
+   --color-accent-dark-2: hsl(184, 14%, 56%);
+   --color-accent-light-1: hsl(185, 41%, 84%);
+   --color-accent-light-2: hsl(189, 41%, 97%);
+   --color-accent-light-3: hsl(0, 0%, 100%);
 
-// Colors - Dark Theme
-$dt-color-primary: hsl(172, 67%, 31%);
-$dt-color-secondary: hsl(183, 100%, 10%);
-$dt-color-accent-dark-1: hsl(185, 41%, 21%);
-$dt-color-accent-dark-2: hsl(186, 14%, 43%);
-$dt-color-accent-dark-3: hsl(180, 18%, 40%);
-$dt-color-accent-dark-4: hsl(0, 0%, 5%);
-$dt-color-accent-dark-5: hsl(0, 0%, 8%);
-$dt-color-accent-light-1: hsl(184, 19%, 68%);
-$dt-color-accent-light-2: hsl(183, 100%, 85%);
-$dt-color-accent-light-3: hsl(183, 100%, 95%);
+   // Colors - Dark Theme
+   --dt-color-primary: hsl(172, 67%, 31%);
+   --dt-color-secondary: hsl(183, 100%, 10%);
+   --dt-color-accent-dark-1: hsl(185, 41%, 21%);
+   --dt-color-accent-dark-2: hsl(186, 14%, 43%);
+   --dt-color-accent-dark-3: hsl(180, 18%, 40%);
+   --dt-color-accent-dark-4: hsl(0, 0%, 5%);
+   --dt-color-accent-dark-5: hsl(0, 0%, 8%);
+   --dt-color-accent-light-1: hsl(184, 19%, 68%);
+   --dt-color-accent-light-2: hsl(183, 100%, 85%);
+   --dt-color-accent-light-3: hsl(183, 100%, 95%);
 
-// Fonts
-$font-primary: "Space-Mono";
-$font-secondary: "Inter";
+   // Fonts
+   --font-primary: "Space-Mono";
+   --font-secondary: "Inter";
 
-// Sizes
-$xsmall: 16px;
-$small: 48px;
-$medium: 96px;
-$large: 144px;
-$xlarge: 192px;
-$xxlarge: 288px;
-$maxwidth: 1400px;
+   // Sizes
+   --xsmall: 16px;
+   --small: 48px;
+   --medium: 96px;
+   --large: 144px;
+   --xlarge: 192px;
+   --xxlarge: 288px;
+   --maxwidth: 1400px;
 
-// Spacing
-$half: 8px;
-$space-1: 16px;
-$space-1-5: 24px;
-$space-2: 32px;
-$space-2-5: 40px;
-$space-3: 48px;
-$space-3-5: 56px;
-$space-4: 64px;
-$space-4-5: 72px;
-$space-5: 80px;
-$space-5-5: 88px;
-$space-6: 96px;
+   // Spacing
+   --half: 8px;
+   --space-1: 16px;
+   --space-1-5: 24px;
+   --space-2: 32px;
+   --space-2-5: 40px;
+   --space-3: 48px;
+   --space-3-5: 56px;
+   --space-4: 64px;
+   --space-4-5: 72px;
+   --space-5: 80px;
+   --space-5-5: 88px;
+   --space-6: 96px;
 
-// Radius
-$radius-2: 2px;
-$radius-4: 4px;
-$radius-8: 8px;
-$radius-16: 16px;
-$radius-24: 24px;
-$radius-round: 50%;
+   // Radius
+   --radius-2: 2px;
+   --radius-4: 4px;
+   --radius-8: 8px;
+   --radius-16: 16px;
+   --radius-24: 24px;
+   --radius-round: 50%;
+
+   // Transitions
+   --transition-1: all 400ms ease-in-out;
 
 
-// UI variables - Light Theme
-$bg-body: $color-accent-light-1;
-$bg-results: $color-secondary;
-$bg-input: $color-accent-light-2;
-$bg-main: $color-accent-light-3;
-$label-text-dark: $color-accent-dark-1;
-$label-text-secondary: $color-accent-dark-2;
-$label-text-light: $color-accent-light-3;
+   // UI variables - Light Theme
+   --bg-body: var(--color-accent-light-1);
+   --bg-results: var(--color-secondary);
+   --bg-input: var(--color-accent-light-2);
+   --bg-main: var(--color-accent-light-3);
+   --label-text-dark: var(--color-accent-dark-1);
+   --label-text-secondary: var(--color-accent-dark-2);
+   --label-text-light: var(--color-accent-light-3);
+}
 
 
 @mixin flex-column-center {
@@ -94,44 +99,47 @@ $label-text-light: $color-accent-light-3;
 
 .dark-theme {
    // UI variables - Dark Theme
-   $bg-body: $dt-color-accent-dark-1;
-   $bg-results: $dt-color-secondary;
-   $bg-input: $dt-color-accent-dark-5;
-   $bg-main: $dt-color-accent-dark-4;
-   $label-text-dark: $dt-color-accent-dark-2;
-   $label-text-secondary: $dt-color-accent-light-1;
-   $label-text-light: $dt-color-accent-light-2;
+   --bg-body: var(--dt-color-accent-dark-1);
+   --bg-results: var(--dt-color-secondary);
+   --bg-input: var(--dt-color-accent-dark-5);
+   --bg-main: var(--dt-color-accent-dark-4);
+   --label-text-dark: var(--dt-color-accent-dark-2);
+   --label-text-secondary: var(--dt-color-accent-light-1);
+   --label-text-light: var(--dt-color-accent-light-2);
 
-   transition: all 400ms ease-in-out;
+   transition: var(--transition-1);
 }
 
 .container {
    @include flex-column-center;
-   background-color: $bg-body;
    min-height: 100vh;
-   gap: $space-2-5;
+   gap: var(--space-2-5);
+}
 
-   transition: all 400ms ease-in-out;
+body {
+   background-color: var(--bg-body);
+   transition: var(--transition-1);
 }
 
 .header {
    display: flex;
    flex-direction: column;
    align-items: center;
-   gap: $space-4;
+   gap: var(--space-4);
 }
 
 .theme-toggle {
    cursor: pointer;
+   transition: var(--transition-1);
 }
 
 .main {
    @include flex-row-center;
-   gap: $space-2;
+   gap: var(--space-2);
    width: min(100vw - 2rem, 1000px);
    min-height: 40vh;
    margin-inline: auto;
-   background-color: $bg-main;
-   border-radius: $radius-24;
+   background-color: var(--bg-main);
+   border-radius: var(--bg-main);
 }
 
