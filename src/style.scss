@@ -30,7 +30,7 @@
    --dt-color-accent-light-3: hsl(183, 100%, 95%);
 
    // Fonts
-   --font-primary: "Space-Mono";
+   --font-primary: "Space Mono", monospace;
    --font-secondary: "Inter";
 
    // Sizes
@@ -78,6 +78,10 @@
    --label-text-light: var(--color-accent-light-3);
 }
 
+@mixin flex-column {
+   display: flex;
+   flex-direction: column;
+}
 
 @mixin flex-column-center {
    display: flex;
@@ -86,7 +90,18 @@
    justify-content: center;
 }
 
+@mixin flex-row {
+   display: flex;
+   flex-direction: row;
+}
+
 @mixin flex-row-center {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+@mixin flex-center {
    display: flex;
    align-items: center;
    justify-content: center;
@@ -95,6 +110,11 @@
 @mixin flex-align-center {
    display: flex;
    align-items: center;
+}
+
+@mixin flex-justify-center {
+   display: flex;
+   justify-content: center;
 }
 
 .dark-theme {
@@ -119,6 +139,7 @@
 body {
    background-color: var(--bg-body);
    transition: var(--transition-1);
+   font-family: var(--font-primary);
 }
 
 .header {
@@ -141,5 +162,117 @@ body {
    margin-inline: auto;
    background-color: var(--bg-main);
    border-radius: var(--bg-main);
+   padding: var(--space-2);
 }
 
+.amounts-input, .per-person-result {
+   flex-basis: 50%;
+   @include flex-column;
+}
+
+.amounts-input {
+   gap: 2rem;
+}
+
+.per-person-result {
+   gap: 9rem;
+}
+
+.total-bill,
+.tip-percent, 
+.group-size {
+   @include flex-column;
+   gap: 0.5rem;
+}
+
+.total-bill > label,
+.tip-percent > label,
+.group-size > label {
+   font-size: 1rem;
+   font-weight: bold;
+}
+
+.total-bill input,
+.group-size input {
+   padding: 0.375rem 1rem;
+   font-size: 1.5rem;
+   width: 100%;
+   border-radius: 5px;
+}
+
+#total-bill__amt::placeholder,
+#group-size__amt::placeholder {
+   font-family: var(--font-primary);
+}
+
+.tip-amt-group {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(7.3rem, 1fr));
+   grid-template-rows: 1fr 1fr;
+   gap: 0.75rem;
+}
+
+.tip-amt-group > * {
+   width: 7.3rem;
+   height: 3rem;
+   text-align: center;
+   font-size: 1.5rem;
+   font-weight: bold;
+   @include flex-center;
+}
+
+input {
+   text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+   -moz-appearance: textfield;
+   appearance: textfield;
+}
+
+.input-wrapper {
+   @include flex-align-center;
+   position: relative;
+}
+
+.input-wrapper img {
+   position: absolute;
+   left: 1rem;
+}
+
+#custom-percent::placeholder {
+   font-family: var(--font-primary);
+}
+
+.tip-per-person,
+.total-per-person {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+}
+
+.per-person-result {
+   padding: var(--space-2);
+}
+
+.result-amounts {
+   display: flex;
+   flex-direction: column;
+   gap: 4rem;
+}
+
+.amounts-reset__btn {
+   @include flex-center;
+   width: 100%;
+   padding-block: 0.55rem;
+   font-family: var(--font-primary);
+   font-size: 1.25rem;
+   font-weight: bold;
+}
