@@ -33,7 +33,7 @@
             <div class="tip-amt-group">
               <div id="five-percent" class="percent-value" data-value="5">5%</div>
               <div id="ten-percent" class="percent-value" data-value="10">10%</div>
-              <div id="fifteen-percent" class="percent-value" data-value="15">15%</div>
+              <div id="fifteen-percent" class="percent-value selected-tip" data-value="15">15%</div>
               <div id="twentyfive-percent" class="percent-value" data-value="25">25%</div>
               <div id="fifty-percent" class="percent-value" data-value="50">50%</div>
               <input 
@@ -48,7 +48,7 @@
           <article id="group-size" class="group-size">
             <label for="group-size__amt">Number of People</label>
             <div class="input-wrapper">
-              <input type="number" name="group-size__amt" id="group-size__amt" placeholder="0">
+              <input type="number" name="group-size__amt" id="group-size__amt" placeholder="1">
               <img src="./images/icon-person.svg" alt="Person icon">
             </div>
           </article>
@@ -61,7 +61,7 @@
                 <div class="tip-result-label__line-1">Tip Amount</div>
                 <div class="tip-result-label__line-2">/ person</div>
               </div>
-              <div class="tip-per-person__amt">$0.00</div>
+              <div class="tip-per-person__amt">$<span>0.00</span></div>
             </article>
 
             <article id="total-per-person" class="total-per-person">
@@ -69,7 +69,7 @@
                 <div class="total-result-label__line-1">Total</div>
                 <div class="total-result-label__line-2">/ person</div>
               </div>
-              <div class="total-per-person__amt">$0.00</div>
+              <div class="total-per-person__amt">$<span>0.00</span></div>
             </article>
           </div>
 
