@@ -11,10 +11,44 @@ const totalPerPerson = document.querySelector('.total-per-person__amt span');
 const resetBtn = document.getElementById('reset-btn');
 
 
-
 let totalBill = 0;
 let tipPercent = 15;
 let groupSize = 1;
+
+
+function calculate() {
+  totalBill = totalBillInput.value ? parseFloat(totalBillInput.value) : 0;
+  groupSize = groupSizeInput.value ? parseInt(groupSizeInput.value) : 1;
+
+  const perPersonTipAmount = (totalBill * (tipPercent / 100) / groupSize)
+  const perPersonTotalAmount = (totalBill / groupSize) + perPersonTipAmount
+
+  tipPerPerson.innerText = `${perPersonTipAmount.toFixed(2)}`;
+  totalPerPerson.innerText = `${perPersonTotalAmount.toFixed(2)}`;
+};
+
+function resetDOM() {
+  totalBill = 0;
+  tipPercent = 15;
+  groupSize = 1;
+
+  percentValues.forEach(val => {
+    val.classList.remove('selected-tip')
+  });
+
+  if (!defaultTip.classList.contains('selected-tip')) {
+    defaultTip.classList.add('selected-tip');
+  }
+
+  customPercentInput.style.border = "none";
+
+  totalBillInput.value = '';
+  groupSizeInput.value = '';
+  customPercentInput.value = '';
+
+  tipPerPerson.innerText = "0.00";
+  totalPerPerson.innerText = "0.00";
+};
 
 
 themeToggle.addEventListener('click', () => {
@@ -29,59 +63,33 @@ themeToggle.addEventListener('click', () => {
 percentValues.forEach(val => {
   val.addEventListener('click', (e) => {
     const tip = val.getAttribute('data-value');
-    // console.log(+tip)
+
     tipPercent = parseInt(tip);
-    // console.log(typeof tipPercent)
+
     percentValues.forEach(val => {
       if (val.id !== e.target.id) {
         val.classList.remove('selected-tip');
       };
     });
+
     val.classList.toggle('selected-tip');
     calculate();
   });
 });
 
+// Attach event listeners
+totalBillInput.addEventListener('change', calculate);
+groupSizeInput.addEventListener('change', calculate);
 
-function calculate() {
-  totalBill = totalBillInput.value ? parseFloat(totalBillInput.value) : 0;
-  groupSize = groupSizeInput.value ? parseInt(groupSizeInput.value) : 1;
-
-  const perPersonTipAmount = (totalBill * (tipPercent / 100) / groupSize)
-  const perPersonTotalAmount = (totalBill / groupSize) + perPersonTipAmount
-
-  // console.log(totalBill);
-  // console.log(groupSize);
-
-  tipPerPerson.innerText = `${perPersonTipAmount.toFixed(2)}`;
-  totalPerPerson.innerText = `${perPersonTotalAmount.toFixed(2)}`;
-};
-
-
-totalBillInput.addEventListener('change', () => {
-  calculate();
-});
-
-groupSizeInput.addEventListener('change', () => {
-  calculate();
-});
-
-resetBtn.addEventListener('click', () => {
-  totalBill = 0;
-  tipPercent = 15;
-  groupSize = 1;
-
+customPercentInput.addEventListener('change', () => {
   percentValues.forEach(val => {
-    val.classList.remove('selected-tip')
+    val.classList.remove('selected-tip');
   });
+  
+  customPercentInput.style.border = "2px solid var(--input-focus-border)";
+  
+  tipPercent = customPercentInput.value;
+  calculate();
+});
 
-  if (!defaultTip.classList.contains('selected-tip')) {
-    defaultTip.classList.add('selected-tip');
-  }
-
-  totalBillInput.value = '';
-  groupSizeInput.value = '';
-
-  tipPerPerson.innerText = "0.00";
-  totalPerPerson.innerText = "0.00";
-})
+resetBtn.addEventListener('click', resetDOM);
