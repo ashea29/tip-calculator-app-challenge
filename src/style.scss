@@ -73,7 +73,7 @@
    --radius-round: 50%;
 
    // Transitions
-   --transition-1: all 300ms ease-in-out;
+   --transition-1: all 300ms ease-in-out, border 1ms;
 
    // Input padding
    --input-padding: 0.375rem 1rem;
@@ -91,6 +91,8 @@
    --label-light-primary: var(--color-accent-light-3);
    --label-light-secondary: var(--color-accent-dark-2);
    --input-icon-color: var(--color-accent-dark-3);
+   --input-text-color: var(--color-secondary);
+   --input-focus-border: var(--color-primary);
    --bg-tip-percent: var(--color-secondary);
    --bg-tip-selected: var(--color-primary);
    --bg-tip-hover: var(--color-accent-light-4);
@@ -160,6 +162,8 @@
    --label-light-primary: var(--dt-color-accent-light-2);
    --label-light-secondary: var(--dt-color-accent-light-1);
    --input-icon-color: var(--dt-color-accent-light-1);
+   --input-text-color: var(--dt-color-accent-dark-3);
+   --input-focus-border: var(--dt-color-accent-light-4);
    --bg-tip-percent: var(--dt-color-accent-light-4);
    --bg-tip-selected: var(--dt-color-primary);
    --bg-tip-hover: var(--dt-color-accent-light-5);
@@ -284,9 +288,9 @@ body {
    color: var(--tip-hover-text);
 }
 
-.percent-value:active {
-   background-color: var(--bg-tip-selected);
-}
+// .percent-value:active {
+//    background-color: var(--bg-tip-selected);
+// }
 
 input {
    text-align: right;
@@ -295,6 +299,8 @@ input {
    background-color: var(--bg-input);
    border-radius: var(--radius-4);
    caret-color: var(--cursor-color);
+   color: var(--input-text-color);
+   font-family: var(--font-primary);
 }
 
 input::placeholder {
@@ -303,7 +309,7 @@ input::placeholder {
 }
 
 input:focus {
-   border: 2px solid var(--color-primary);
+   border: 2px solid var(--input-focus-border);
 }
 
 input::-webkit-outer-spin-button,
@@ -403,5 +409,16 @@ input[type=number]{
    .amounts-input,
    .per-person-result {
       width: 100%;
+   }
+}
+
+@media (width < 600px) {
+   .tip-per-person__amt,
+   .total-per-person__amt {
+      font-size: 2rem;
+   }
+
+   .per-person-result {
+      gap: 3rem;
    }
 }
