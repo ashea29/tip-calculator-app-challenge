@@ -13,9 +13,14 @@
    --color-secondary: hsl(183, 100%, 15%);
    --color-accent-dark-1: hsl(186, 14%, 43%);
    --color-accent-dark-2: hsl(184, 14%, 56%);
+   --color-accent-dark-3: hsl(184, 19%, 68%);
+   --color-accent-dark-4: hsl(180, 18%, 40%);
+   --color-accent-dark-5: hsl(180, 25%, 32%);
    --color-accent-light-1: hsl(185, 41%, 84%);
    --color-accent-light-2: hsl(189, 41%, 97%);
    --color-accent-light-3: hsl(0, 0%, 100%);
+   --color-accent-light-4: hsl(173, 61%, 77%);
+   --error-color: hsl(13, 70%, 61);
 
    // Colors - Dark Theme
    --dt-color-primary: hsl(172, 67%, 31%);
@@ -24,10 +29,13 @@
    --dt-color-accent-dark-2: hsl(186, 14%, 43%);
    --dt-color-accent-dark-3: hsl(180, 18%, 40%);
    --dt-color-accent-dark-4: hsl(0, 0%, 5%);
-   --dt-color-accent-dark-5: hsl(0, 0%, 8%);
+   --dt-color-accent-dark-5: hsl(0, 0%, 12%);
    --dt-color-accent-light-1: hsl(184, 19%, 68%);
    --dt-color-accent-light-2: hsl(183, 100%, 85%);
    --dt-color-accent-light-3: hsl(183, 100%, 95%);
+   --dt-color-accent-light-4: hsl(189, 41%, 47%);
+   --dt-color-accent-light-5: hsl(173, 61%, 77%);
+   --dt-error-color: hsl(13, 70%, 61);
 
    // Fonts
    --font-primary: "Space Mono", monospace;
@@ -69,13 +77,32 @@
 
 
    // UI variables - Light Theme
+   --input-error: var(--error-color)
+   --logo-color: var(--color-accent-dark-5);
    --bg-body: var(--color-accent-light-1);
    --bg-results: var(--color-secondary);
    --bg-input: var(--color-accent-light-2);
    --bg-main: var(--color-accent-light-3);
-   --label-text-dark: var(--color-accent-dark-1);
-   --label-text-secondary: var(--color-accent-dark-2);
-   --label-text-light: var(--color-accent-light-3);
+   --label-dark: var(--color-accent-dark-1);
+   --label-light-primary: var(--color-accent-light-3);
+   --label-light-secondary: var(--color-accent-dark-2);
+   --input-icon-color: var(--color-accent-dark-3);
+   --bg-tip-percent: var(--color-secondary);
+   --bg-tip-selected: var(--color-primary);
+   --bg-tip-hover: var(--color-accent-light-4);
+   --tip-percent-text: var(--color-accent-light-3);
+   --tip-selected-text: var(--color-secondary);
+   --tip-hover-text: var(--color-secondary);
+   --placeholder: var(--color-accent-dark-4);
+   --result-label-line-1: var(--color-accent-light-3);
+   --result-label-line-2: var(--color-accent-dark-2);
+   --result-amt: var(--color-primary);
+   --bg-reset-btn: var(--color-primary);
+   --reset-btn-text: var(--color-secondary);
+}
+
+* {
+   transition: var(--transition-1);
 }
 
 @mixin flex-column {
@@ -119,15 +146,33 @@
 
 .dark-theme {
    // UI variables - Dark Theme
+   --logo-color: var(--dt-color-accent-light-3);
    --bg-body: var(--dt-color-accent-dark-1);
    --bg-results: var(--dt-color-secondary);
    --bg-input: var(--dt-color-accent-dark-5);
    --bg-main: var(--dt-color-accent-dark-4);
-   --label-text-dark: var(--dt-color-accent-dark-2);
-   --label-text-secondary: var(--dt-color-accent-light-1);
-   --label-text-light: var(--dt-color-accent-light-2);
+   --label-dark: var(--dt-color-accent-dark-2);
+   --label-light-primary: var(--dt-color-accent-light-2);
+   --label-light-secondary: var(--dt-color-accent-light-1);
+   --input-icon-color: var(--dt-color-accent-light-1);
+   --bg-tip-percent: var(--dt-color-accent-light-4);
+   --bg-tip-selected: var(--dt-color-primary);
+   --bg-tip-hover: var(--dt-color-accent-light-5);
+   --tip-percent-text: var(--dt-color-accent-light-2);
+   --tip-selected-text: var(--dt-color-accent-dark-4);
+   --placeholder: var(--dt-color-accent-dark-3);
+   --result-label-line-1: var(--dt-color-accent-light-2);
+   --result-label-line-2: var(--dt-color-accent-light-1);
+   --result-amt: var(--dt-color-accent-light-2);
+   --bg-reset-btn: var(--dt-color-primary);
+   --reset-btn-text: var(--dt-color-accent-light-2);
 
    transition: var(--transition-1);
+}
+
+.percent-value.selected-tip {
+   background-color: var(--bg-tip-selected);
+   color: var(--tip-selected-text);
 }
 
 .container {
@@ -150,6 +195,10 @@ body {
    gap: var(--space-4);
 }
 
+.brand-logo img {
+   fill: var(--logo-color);
+}
+
 .theme-toggle {
    cursor: pointer;
    transition: var(--transition-1);
@@ -158,7 +207,7 @@ body {
 .main {
    @include flex-row-center;
    gap: var(--space-2);
-   width: min(100vw - 2rem, 1000px);
+   width: min(100vw - 2rem, 920px);
    min-height: 40vh;
    margin-inline: auto;
    background-color: var(--bg-main);
@@ -179,6 +228,7 @@ body {
    gap: 9rem;
    background-color: var(--bg-results);
    border-radius: var(--radius-16);
+   padding: var(--space-2);
 }
 
 .total-bill,
@@ -193,6 +243,7 @@ body {
 .group-size > label {
    font-size: 1.1rem;
    font-weight: bold;
+   color: var(--label-dark);
 }
 
 .total-bill input,
@@ -200,13 +251,15 @@ body {
    padding: 0.375rem 1rem;
    font-size: 1.5rem;
    width: 100%;
-   border-radius: var(--radius-4);
+   // border-radius: var(--radius-4);
+   // background-color: var(--bg-input);
 }
 
-#total-bill__amt::placeholder,
-#group-size__amt::placeholder {
-   font-family: var(--font-primary);
-}
+// #total-bill__amt::placeholder,
+// #group-size__amt::placeholder {
+//    font-family: var(--font-primary);
+//    color: var(--placeholder);
+// }
 
 .tip-amt-group {
    display: grid;
@@ -224,8 +277,39 @@ body {
    @include flex-center;
 }
 
+.percent-value {
+   cursor: pointer;
+   background-color: var(--bg-tip-percent);
+   color: var(--tip-percent-text);
+   border-radius: var(--radius-4);
+   transition: var(--transition-1);
+}
+
+.percent-value:hover {
+   background-color: var(--bg-tip-hover);
+   color: var(--tip-hover-text);
+}
+
+.percent-value:active {
+   background-color: var(--bg-tip-selected);
+}
+
+
 input {
    text-align: right;
+   border: none;
+   outline: none;
+   background-color: var(--bg-input);
+   border-radius: var(--radius-4);
+}
+
+input::placeholder {
+   font-family: var(--font-primary);
+   color: var(--placeholder);
+}
+
+input:focus {
+   border: 2px solid var(--color-primary);
 }
 
 input::-webkit-outer-spin-button,
@@ -247,10 +331,12 @@ input[type=number]{
 .input-wrapper img {
    position: absolute;
    left: 1rem;
+   fill: var(--input-icon-color);
 }
 
 #custom-percent::placeholder {
    font-family: var(--font-primary);
+   // background-color: var(--bg-input);
 }
 
 .tip-per-person,
@@ -263,19 +349,28 @@ input[type=number]{
 
 .tip-result-label__line-1,
 .total-result-label__line-1 {
-   color: var(--label-text-light);
+   color: var(--label-light-primary);
    font-weight: bold;
    font-size: 1.1rem;
 }
 
-.per-person-result {
-   padding: var(--space-2);
+.tip-result-label__line-2,
+.total-result-label__line-2 {
+   color: var(--label-light-secondary);
 }
 
 .result-amounts {
    display: flex;
    flex-direction: column;
    gap: 4rem;
+}
+
+.tip-per-person__amt,
+.total-per-person__amt {
+   font-family: var(--font-primary);
+   font-weight: bold;
+   font-size: 3rem;
+   color: var(--result-amt);
 }
 
 .amounts-reset__btn {
@@ -288,6 +383,6 @@ input[type=number]{
    font-weight: bold;
    border-radius: var(--radius-4);
    border: none;
-   background-color: var(--color-primary);
-   color: var(--color-secondary);
+   background-color: var(--bg-reset-btn);
+   color: var(--reset-btn-text);
 }
