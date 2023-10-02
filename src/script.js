@@ -4,13 +4,15 @@ const toggleImg = document.querySelector('.theme-toggle img');
 const totalBillInput = document.getElementById('total-bill__amt');
 const customPercentInput = document.getElementById('custom-percent');
 const percentValues = document.querySelectorAll('.percent-value');
+const defaultTip = document.getElementById('fifteen-percent');
 const groupSizeInput = document.getElementById('group-size__amt');
 const tipPerPerson = document.querySelector('.tip-per-person__amt span');
 const totalPerPerson = document.querySelector('.total-per-person__amt span');
+const resetBtn = document.getElementById('reset-btn');
 
 
 
-let totalBill;
+let totalBill = 0;
 let tipPercent = 15;
 let groupSize = 1;
 
@@ -36,6 +38,7 @@ percentValues.forEach(val => {
       };
     });
     val.classList.toggle('selected-tip');
+    calculate();
   });
 });
 
@@ -44,13 +47,14 @@ function calculate() {
   totalBill = totalBillInput.value ? parseFloat(totalBillInput.value) : 0;
   groupSize = groupSizeInput.value ? parseInt(groupSizeInput.value) : 1;
 
-  // console.log
   const perPersonTipAmount = (totalBill * (tipPercent / 100) / groupSize)
+  const perPersonTotalAmount = (totalBill / groupSize) + perPersonTipAmount
 
-  console.log(totalBill);
-  console.log(groupSize);
+  // console.log(totalBill);
+  // console.log(groupSize);
 
-  tipPerPerson.innerText = `${parseFloat(perPersonTipAmount).toFixed(2)}`
+  tipPerPerson.innerText = `${perPersonTipAmount.toFixed(2)}`;
+  totalPerPerson.innerText = `${perPersonTotalAmount.toFixed(2)}`;
 };
 
 
@@ -61,3 +65,23 @@ totalBillInput.addEventListener('change', () => {
 groupSizeInput.addEventListener('change', () => {
   calculate();
 });
+
+resetBtn.addEventListener('click', () => {
+  totalBill = 0;
+  tipPercent = 15;
+  groupSize = 1;
+
+  percentValues.forEach(val => {
+    val.classList.remove('selected-tip')
+  });
+
+  if (!defaultTip.classList.contains('selected-tip')) {
+    defaultTip.classList.add('selected-tip');
+  }
+
+  totalBillInput.value = '';
+  groupSizeInput.value = '';
+
+  tipPerPerson.innerText = "0.00";
+  totalPerPerson.innerText = "0.00";
+})

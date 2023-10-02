@@ -175,8 +175,6 @@
    --result-amt: var(--dt-color-accent-light-2);
    --bg-reset-btn: var(--dt-color-primary);
    --reset-btn-text: var(--dt-color-accent-light-2);
-
-   
 }
 
 div.percent-value.selected-tip {
@@ -288,10 +286,6 @@ body {
    color: var(--tip-hover-text);
 }
 
-// .percent-value:active {
-//    background-color: var(--bg-tip-selected);
-// }
-
 input {
    text-align: right;
    border: none;
@@ -396,6 +390,7 @@ input[type=number]{
    border: none;
    background-color: var(--bg-reset-btn);
    color: var(--reset-btn-text);
+   cursor: pointer;
 }
 
 
