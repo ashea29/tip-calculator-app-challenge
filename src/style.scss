@@ -8,7 +8,7 @@
 }
 
 :root {
-      // Colors - Light Theme
+   // Colors - Light Theme
    --color-primary: hsl(172, 67%, 45%);
    --color-secondary: hsl(183, 100%, 15%);
    --color-accent-dark-1: hsl(186, 14%, 43%);
@@ -73,12 +73,16 @@
    --radius-round: 50%;
 
    // Transitions
-   --transition-1: all 400ms ease-in-out;
+   --transition-1: all 300ms ease-in-out;
+
+   // Input padding
+   --input-padding: 0.375rem 1rem;
 
 
    // UI variables - Light Theme
    --input-error: var(--error-color)
    --logo-color: var(--color-accent-dark-5);
+   --cursor-color: var(--color-secondary);
    --bg-body: var(--color-accent-light-1);
    --bg-results: var(--color-secondary);
    --bg-input: var(--color-accent-light-2);
@@ -147,6 +151,7 @@
 .dark-theme {
    // UI variables - Dark Theme
    --logo-color: var(--dt-color-accent-light-3);
+   --cursor-color: var(--dt-color-accent-light-2);
    --bg-body: var(--dt-color-accent-dark-1);
    --bg-results: var(--dt-color-secondary);
    --bg-input: var(--dt-color-accent-dark-5);
@@ -167,10 +172,10 @@
    --bg-reset-btn: var(--dt-color-primary);
    --reset-btn-text: var(--dt-color-accent-light-2);
 
-   transition: var(--transition-1);
+   
 }
 
-.percent-value.selected-tip {
+div.percent-value.selected-tip {
    background-color: var(--bg-tip-selected);
    color: var(--tip-selected-text);
 }
@@ -184,7 +189,6 @@
 
 body {
    background-color: var(--bg-body);
-   transition: var(--transition-1);
    font-family: var(--font-primary);
 }
 
@@ -201,7 +205,6 @@ body {
 
 .theme-toggle {
    cursor: pointer;
-   transition: var(--transition-1);
 }
 
 .main {
@@ -248,18 +251,10 @@ body {
 
 .total-bill input,
 .group-size input {
-   padding: 0.375rem 1rem;
+   padding: var(--input-padding);
    font-size: 1.5rem;
    width: 100%;
-   // border-radius: var(--radius-4);
-   // background-color: var(--bg-input);
 }
-
-// #total-bill__amt::placeholder,
-// #group-size__amt::placeholder {
-//    font-family: var(--font-primary);
-//    color: var(--placeholder);
-// }
 
 .tip-amt-group {
    display: grid;
@@ -282,7 +277,6 @@ body {
    background-color: var(--bg-tip-percent);
    color: var(--tip-percent-text);
    border-radius: var(--radius-4);
-   transition: var(--transition-1);
 }
 
 .percent-value:hover {
@@ -294,13 +288,13 @@ body {
    background-color: var(--bg-tip-selected);
 }
 
-
 input {
    text-align: right;
    border: none;
    outline: none;
    background-color: var(--bg-input);
    border-radius: var(--radius-4);
+   caret-color: var(--cursor-color);
 }
 
 input::placeholder {
@@ -334,9 +328,20 @@ input[type=number]{
    fill: var(--input-icon-color);
 }
 
+#custom-percent {
+   padding: var(--input-padding);
+}
+
 #custom-percent::placeholder {
    font-family: var(--font-primary);
-   // background-color: var(--bg-input);
+}
+
+#custom-percent:focus {
+   text-align: right;
+}
+
+#custom-percent:focus::placeholder {
+   visibility: hidden;
 }
 
 .tip-per-person,
@@ -385,4 +390,18 @@ input[type=number]{
    border: none;
    background-color: var(--bg-reset-btn);
    color: var(--reset-btn-text);
+}
+
+
+@media (width < 880px) {
+   .main {
+      flex-direction: column;
+      gap: var(--space-4);
+      width: min(100vw, 600px);
+   }
+
+   .amounts-input,
+   .per-person-result {
+      width: 100%;
+   }
 }
