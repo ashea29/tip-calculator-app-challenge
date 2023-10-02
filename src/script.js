@@ -1,7 +1,11 @@
+const logo = document.querySelector('.brand__logo img');
 const themeToggle = document.querySelector('.theme-toggle');
 const toggleImg = document.querySelector('.theme-toggle img');
-const percentValues = document.querySelectorAll('.percent-value')
-const logo = document.querySelector('.brand__logo img')
+const totalBillInput = document.getElementById('total-bill__amt');
+const customPercentInput = document.getElementById('custom-percent');
+const percentValues = document.querySelectorAll('.percent-value');
+const groupSizeInput = document.getElementById('group-size__amt');
+
 
 let totalBill;
 let tipPercent;
@@ -18,12 +22,16 @@ themeToggle.addEventListener('click', () => {
 
 
 percentValues.forEach(val => {
-  val.addEventListener('click', () => {
+  val.addEventListener('click', (e) => {
     const tip = val.getAttribute('data-value');
     // console.log(+tip)
     tipPercent = +tip;
     // console.log(typeof tipPercent)
-    percentValues.forEach(val => val.classList.remove('selected-tip'))
+    percentValues.forEach(val => {
+      if (val.id !== e.target.id) {
+        val.classList.remove('selected-tip');
+      };
+    });
     val.classList.toggle('selected-tip');
   })
 })
