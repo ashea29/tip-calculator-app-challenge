@@ -14,8 +14,5 @@
     "postcss-jit-props": "^1.0.13",
     "sass": "^1.66.1",
     "vite": "^4.4.5"
-  },
-  "dependencies": {
-    "motion": "^10.16.2"
   }
 }
