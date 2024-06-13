@@ -37,7 +37,7 @@ As an added challenge, I decided to create a theme toggle for this project. I ad
 ### Links
 
 - Solution URL: [GitHub repo](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://tip-calculator-solution-ajs.netlify.app/](https://tip-calculator-solution-ajs.netlify.app/)
 
 ## My process
 
