@@ -212,7 +212,7 @@ body {
 .main {
    @include flex-row-center;
    gap: var(--space-2);
-   width: min(100vw - 2rem, 920px);
+   width: min(100vw - 2rem, 1000px);
    min-height: 40vh;
    margin-inline: auto;
    background-color: var(--bg-main);
