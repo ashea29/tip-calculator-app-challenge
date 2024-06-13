@@ -42,34 +42,34 @@
    --font-secondary: "Inter";
 
    // Sizes
-   --xsmall: 16px;
-   --small: 48px;
-   --medium: 96px;
-   --large: 144px;
-   --xlarge: 192px;
-   --xxlarge: 288px;
-   --maxwidth: 1400px;
+   --xsmall: 1rem;
+   --small: 3rem;
+   --medium: 6rem;
+   --large: 9rem;
+   --xlarge: 12rem;
+   --xxlarge: 18rem;
+   --maxwidth: 87.5rem;
 
    // Spacing
-   --half: 8px;
-   --space-1: 16px;
-   --space-1-5: 24px;
-   --space-2: 32px;
-   --space-2-5: 40px;
-   --space-3: 48px;
-   --space-3-5: 56px;
-   --space-4: 64px;
-   --space-4-5: 72px;
-   --space-5: 80px;
-   --space-5-5: 88px;
-   --space-6: 96px;
+   --half: 0.5rem;
+   --space-1: 1rem;
+   --space-1-5: 1.5rem;
+   --space-2: 2rem;
+   --space-2-5: 2.5rem;
+   --space-3: 3rem;
+   --space-3-5: 3.5rem;
+   --space-4: 4rem;
+   --space-4-5: 4.5rem;
+   --space-5: 5rem;
+   --space-5-5: 5.5rem;
+   --space-6: 6rem;
 
    // Radius
-   --radius-2: 2px;
-   --radius-4: 4px;
-   --radius-8: 8px;
-   --radius-16: 16px;
-   --radius-24: 24px;
+   --radius-2: 0.125rem;
+   --radius-4: 0.25rem;
+   --radius-8: 0.5rem;
+   --radius-16: 1rem;
+   --radius-24: 1.5rem;
    --radius-round: 50%;
 
    // Transitions
@@ -212,7 +212,7 @@ body {
 .main {
    @include flex-row-center;
    gap: var(--space-2);
-   width: min(100vw - 2rem, 1000px);
+   width: min(100vw - 2rem, 57.5rem);
    min-height: 40vh;
    margin-inline: auto;
    background-color: var(--bg-main);
@@ -280,6 +280,7 @@ body {
    background-color: var(--bg-tip-percent);
    color: var(--tip-percent-text);
    border-radius: var(--radius-4);
+   width: 100%;
 }
 
 .percent-value:hover {
@@ -331,6 +332,7 @@ input[type=number]{
 
 #custom-percent {
    padding: var(--input-padding);
+   width: 100%;
 }
 
 #custom-percent::placeholder {
@@ -395,11 +397,11 @@ input[type=number]{
 }
 
 
-@media (width < 880px) {
+@media (width < 55rem) {
    .main {
       flex-direction: column;
       gap: var(--space-4);
-      width: min(100vw, 600px);
+      width: min(100vw, 37.5rem);
    }
 
    .amounts-input,
@@ -408,7 +410,7 @@ input[type=number]{
    }
 }
 
-@media (width < 600px) {
+@media (width < 37.5rem) {
    .tip-per-person__amt,
    .total-per-person__amt {
       font-size: 2rem;
