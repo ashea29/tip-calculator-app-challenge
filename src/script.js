@@ -54,9 +54,9 @@ function resetDOM() {
 themeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-theme');
 
-  toggleImg.src = document.body.classList.contains('dark-theme') ? './images/dark-theme-icon.svg' : './images/light-theme-icon.svg';
+  toggleImg.src = document.body.classList.contains('dark-theme') ? '/images/dark-theme-icon.svg' : '/images/light-theme-icon.svg';
 
-  logo.src = document.body.classList.contains('dark-theme') ? './images/dt-logo.svg' : './images/lt-logo.svg';
+  logo.src = document.body.classList.contains('dark-theme') ? '/images/dt-logo.svg' : '/images/lt-logo.svg';
 });
 
 
