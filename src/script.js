@@ -1,3 +1,9 @@
+import dtIconUrl from './images/dark-theme-icon.svg';
+import ltIconUrl from './images/light-theme-icon.svg';
+import ltLogoUrl from './images/lt-logo.svg';
+import dtLogoUrl from './images/dt-logo.svg';
+
+
 const logo = document.querySelector('.brand__logo img');
 const themeToggle = document.querySelector('.theme-toggle');
 const toggleImg = document.querySelector('.theme-toggle img');
@@ -54,9 +60,9 @@ function resetDOM() {
 themeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-theme');
 
-  toggleImg.src = document.body.classList.contains('dark-theme') ? '/dark-theme-icon.svg' : '/light-theme-icon.svg';
+  toggleImg.src = document.body.classList.contains('dark-theme') ? dtIconUrl : ltIconUrl;
 
-  logo.src = document.body.classList.contains('dark-theme') ? '/dt-logo.svg' : '/lt-logo.svg';
+  logo.src = document.body.classList.contains('dark-theme') ? dtLogoUrl : ltLogoUrl;
 });
 
 
