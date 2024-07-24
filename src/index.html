@@ -10,17 +10,19 @@
   <body>
     <div class="container">
       <header class="header">
+        <h1 class="sr-only">Splitter</h1>
         <div class="brand__logo">
           <img src="./images/lt-logo.svg" alt="Splitter Logo">
         </div>
-        <div class="theme-toggle">
+        <div class="theme-toggle" aria-label="Theme toggle">
           <img src="./images/light-theme-icon.svg" alt="Theme toggle">
         </div>
       </header>
       <main class="main">
         <section id="amounts-input" class="amounts-input">
-          
+          <h2 class="sr-only">Input bill details</h2>
           <article id="total-bill" class="total-bill">
+            <h3 class="sr-only">Total Bill</h3>
             <label for="total-bill__amt">Bill</label>
             <div class="input-wrapper">
               <input type="number" name="total-bill__amt" id="total-bill__amt" placeholder="0">
@@ -29,6 +31,7 @@
           </article>
           
           <article id="tip-percent" class="tip-percent">
+            <h3 class="sr-only">Tip Percentage</h3>
             <label>Select Tip %</label>
             <div class="tip-amt-group">
               <div id="five-percent" class="percent-value" data-value="5">5%</div>
@@ -46,6 +49,7 @@
           </article>
           
           <article id="group-size" class="group-size">
+            <h3 class="sr-only">Group Size</h3>
             <label for="group-size__amt">Number of People</label>
             <div class="input-wrapper">
               <input type="number" name="group-size__amt" id="group-size__amt" placeholder="1">
@@ -55,8 +59,10 @@
         </section>
         
         <section id="per-person-result" class="per-person-result">
+          <h2 class="sr-only">Results</h2>
           <div class="result-amounts">
             <article id="tip-per-person" class="tip-per-person">
+              <h3 class="sr-only">Tip Per Person</h3>
               <div class="tip-per-person__label">
                 <div class="tip-result-label__line-1">Tip Amount</div>
                 <div class="tip-result-label__line-2">/ person</div>
@@ -65,6 +71,7 @@
             </article>
 
             <article id="total-per-person" class="total-per-person">
+              <h3 class="sr-only">Total Per Person</h3>
               <div class="total-result-label">
                 <div class="total-result-label__line-1">Total</div>
                 <div class="total-result-label__line-2">/ person</div>
@@ -74,6 +81,7 @@
           </div>
 
           <article id="amounts-reset" class="amounts-reset">
+            <h3 class="sr-only">Reset Amounts</h3>
             <button id="reset-btn" class="amounts-reset__btn">RESET</button>
           </article>
         </section>
